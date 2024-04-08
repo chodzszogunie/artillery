@@ -1,0 +1,39 @@
+config:
+  target: 'https://www.afternic.com/forsale/catboys.com?utm_source=TDFS_DASLNC&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-daslnc_base&traffic_type=TDFS_DASLNC&traffic_id=daslnc&'
+  phases:
+    - duration: 300
+      arrivalRate: 500
+  defaults:
+    headers:
+      Content-Type: 'application/json'
+
+scenarios:
+  - flow:
+      - get:
+          url: "{{target}}get"
+          capture:
+            - json: '$.entries[0].API'
+              as: 'random_api'
+      - post:
+          url: "{{target}}post"
+          json: '{{ payload }}'
+      - get:
+          url: '/apis/{{ random_api }}'
+
+payload:
+  path: './data.json'
+
+hooks:
+  beforeRequest:
+    - function: 'readFile'
+      args: ['./data.json']
+
+benchmarks:
+  - name: "95th Percentile of Response Time"
+    metric: response_time
+    percentile: 95
+  - name: "Average Response Time"
+    metric: response_time
+    average: true
+  - name: "Total Requests"
+    metric: requestCount
