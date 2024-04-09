@@ -1,0 +1,34 @@
+artillery results
+errors.etimedout -> uzytkownicy dla ktorych czas odpowiedzi byl za dlugi by uzyskac odpowiedz od serwera
+errors.failed capture or match -> uzytkownicy nie dostali sie na strone
+http.codes.200 -> ilosc kodow 200
+http.codes.403 -> ilosc kodow 403 ('forbidden')
+http.downloaded_bytes -> ilosc pobranych bitow
+request rate -> ilosc requestow na sekunde
+http.requests -> ilosc requestow
+http.response_time -> czas odpowiedzi
+min -> minimalny czas odpowiedzi
+max -> maksymalny czas odpowiedzi
+mean -> sredni czas odpowiedzi
+median -> mediana czasu odpowiedzi
+p95 -> 95 percentyl uzytkownikow
+p99 -> 99 percentyl uzytkownikow
+
+http.responses -> odpowiedzi http
+vusers.created/by_name -> ilosc stworzonych vuserow/vuserow utworzonych z nazwa
+vusers.failed -> vuserzy ktorzy nie dostali sie na strone
+
+_________________________________________________________________
+
+artillery summary
+
+Bazujac na wynikach artillery, 60990 uzytkownikow nie dostalo sie na strone.
+Wiekszosc uzytkownikow dostalo kod 200 ('ok') (89010 uzytkownikow). Reszta uzytkownikow otrzymala kod 403.
+Ilosc pobranych bitow to 11123136.
+Request rate wyniosl 489 requestow na sekunde.
+Lacznie requestow bylo 150 000.
+Minimalny czas odpowiedzi wyniosl 0. Maksymalny czas odpowiedzi wyniosl 711 sekund.
+Sredni czas odpowiedzi wyniosl NaN, mediana wyniosla 18 sekund.
+95 percentyl otrzymal 51.9 sekund, a 99 percentyl 106.7 sekund.
+Ilosc odpowiedzi http wyniosla 89010.
+Stworzono 150 000 vuserow.
